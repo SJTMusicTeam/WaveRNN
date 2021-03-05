@@ -11,24 +11,24 @@ voc_model_id = 'ljspeech_mol'
 tts_model_id = 'ljspeech_lsa_smooth_attention'
 
 # set this to True if you are only interested in WaveRNN
-ignore_tts = False
+ignore_tts = True
 
 
 # DSP --------------------------------------------------------------------------------------------------------------#
 
 # Settings for all models
-sample_rate = 22050
+sample_rate = 22050                 # 采样点数量
 n_fft = 2048
 fft_bins = n_fft // 2 + 1
-num_mels = 80
-hop_length = 275                    # 12.5ms - in line with Tacotron 2 paper
+num_mels = 80                       # bin/infer.py parser.add_argument("--n_mels", default=80, type=int)
+hop_length = 275                    # 12.5ms - in line with Tacotron 2 paper 22050*0.03
 win_length = 1100                   # 50ms - same reason as above
-fmin = 40
-min_level_db = -100
-ref_level_db = 20
-bits = 9                            # bit depth of signal
-mu_law = True                       # Recommended to suppress noise if using raw bits in hp.voc_mode below
-peak_norm = False                   # Normalise to the peak of each wav file
+fmin = 40                           # check
+min_level_db = -100                 # check
+ref_level_db = 20                   # check
+bits = 9                            # check bit depth of signal
+mu_law = True                       # check Recommended to suppress noise if using raw bits in hp.voc_mode below
+peak_norm = False                   # check Normalise to the peak of each wav file
 
 
 # WAVERNN / VOCODER ------------------------------------------------------------------------------------------------#
